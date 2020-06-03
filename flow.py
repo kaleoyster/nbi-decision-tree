@@ -3,16 +3,34 @@ title: This file contains functions that emulate the conditions of
 deicison flow chart by NDOT
 author: Akshay Kale
 """
-import os
 import csv
-from tqdm import tqdm
-import numpy as np
-from collections import defaultdict
 
 __author__ = 'Akshay Kale'
-__copyright__ =  'GPL'
+__copyright__ = 'GPL'
 __credit__ = []
 __email__ = 'akale@unomaha.edu'
+
+#TODO
+
+# Preprocess (Pipeline): 
+#   1. (List) Extract all the necessary attribute
+#   2. Using if and else, create a pipeline, that takes in:
+#               1. Args: (record, datastructure)
+#               2. Returns: report (JSON datastructure)
+#   3. Run decision flow chart -> Create condition Report
+
+# Datastructure ( Report ):
+#   1. {structure: {condition1: True,
+#                    condition2: False,
+#                    condition3: True,
+#                    condition4: False,
+#                    condition5: False
+#      }}
+
+# Create Decision Flow Chart:
+#   1. For every record -> pipeline (preprocess) -> Report
+#   2. preprocess
+
 
 def condition1_1(records):
     """
@@ -25,12 +43,37 @@ def condition1_1(records):
     structures = list()
     for record in records:
         if record['column'] < 3:
-            structure.append(True)
+            structures.append(True)
         else:
-            structure.append(False)
+            structures.append(False)
     return structures
 
-def flow_chart(filename):
+
+def decision_flow_chart(csvReader):
+    """
+    Description: takes in filename and performs conditional checks
+    Args:
+        filename (string): path to the nbi file
+    Returns:
+        structures (list): a list of structures that require maintenance
+    """
+    report = list()
+    for record in csvReader:
+        # Extract fields
+        # Execute function with filed
+        fieldStat1_1 = condition1_1(field)
+
+        field1 = record[0]
+        if condition1_1(fieldStat1_1) is True:
+            report.append(True)
+        elif condition1_2(field1) is True:
+            report.append(False)
+        else:
+            report.append(None)
+    return report
+
+
+def read_csv(filename):
     """
     Description: takes in filename and performs conditional checks
     Args:
@@ -43,11 +86,15 @@ def flow_chart(filename):
         header = next(csvReader)
     return header
 
+
 def main():
-    directory ='../data/nbi/'
+    directory = '../data/nbi/'
     csvFileName = '06-20-19-thesis-dataset_allstates_allstates.csv'
+
     filename = directory + csvFileName
-    print(flow_chart(filename))
+    print(decision_flow_chart(filename))
+
 
 if __name__ == '__main__':
+
     main()
