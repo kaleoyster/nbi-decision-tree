@@ -1,7 +1,6 @@
 """
 Decision - tree with a selction of replacements, rehabs, and redecks
 """
-# Import packages
 import csv
 import pandas as pd
 import requests
@@ -86,7 +85,7 @@ class Flow():
                 return True
             else:
                 return False
-    
+
     def repairSubstructureFeasibile(self, df):
         pass
 
@@ -129,7 +128,7 @@ class Flow():
                 return True
             else:
                 return False
-    
+
     def condition_12_1(self, df):
         ## 12.1 occurs only if 1.1, 2.1, 3.1, 6.1, 10.1 = OK
         ## 4.1, or 4.2, and 7.0
@@ -186,7 +185,7 @@ class Flow():
 #                    return False
 #            else:
 #                False
-       
+#
 #def main():
 #    maintain = Flow()
 #    
