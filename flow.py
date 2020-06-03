@@ -14,6 +14,13 @@ __credit__ = []
 __email__ = 'akale@unomaha.edu'
 
 def flow_chart(filename):
+    """
+    Description: takes in filename and performs conditional checks
+    Args:
+        filename (string): path to the nbi file
+    Returns:
+        structures (list): a list of structures that require maintenance
+    """
     with open(filename, 'r') as csvFile:
         csvReader = csv.reader(csvFile, delimiter=',')
         header = next(csvReader)
