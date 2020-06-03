@@ -15,7 +15,7 @@ __email__ = 'akale@unomaha.edu'
 
 def flow_chart(filename):
     with open(filename, 'r') as csvFile:
-        csvReader = csv.reader(csvFile, delimiter= ',')
+        csvReader = csv.reader(csvFile, delimiter=',')
         header = next(csvReader)
     return header
 
