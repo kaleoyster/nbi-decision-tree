@@ -13,10 +13,17 @@ __copyright__ =  'GPL'
 __credit__ = []
 __email__ = 'akale@unomaha.edu'
 
+def flow_chart(filename):
+    with open(filename, 'r') as csvFile:
+        csvReader = csv.reader(csvFile, delimiter= ',')
+        header = next(csvReader)
+    return header
+
 def main():
-    directory ='/Users/AkshayKale/Documents/github/data/nbi/'
-    csvFileName = '06-20-19-thesis-dataset_allstate_allstates.csv'
+    directory ='../data/nbi/'
+    csvFileName = '06-20-19-thesis-dataset_allstates_allstates.csv'
     filename = directory + csvFileName
+    print(flow_chart(filename))
 
 if __name__ == '__main__':
     main()
