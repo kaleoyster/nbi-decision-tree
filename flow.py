@@ -24,6 +24,8 @@ def flow_chart(filename):
     with open(filename, 'r') as csvFile:
         csvReader = csv.reader(csvFile, delimiter=',')
         header = next(csvReader)
+        for row in tqdm(csvReader):
+            print(row)
     return header
 
 def main():
