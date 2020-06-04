@@ -89,6 +89,7 @@ def read_csv(filename):
 
 def main():
     directory = '../data/nbi/'
+    # need the raw nbi file
     csvFileName = '06-20-19-thesis-dataset_allstates_allstates.csv'
 
     filename = directory + csvFileName
